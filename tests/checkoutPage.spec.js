@@ -1,6 +1,6 @@
 import { test, expect } from '../fixtures/fixtures';
 
-test('complete checkout flow', async ({ 
+test('@smoke complete checkout flow', async ({ 
   loginpage, 
   inventorypage, 
   cartpage, 
