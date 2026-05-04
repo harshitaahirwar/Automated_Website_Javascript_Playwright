@@ -7,11 +7,11 @@ pipeline {
 
     stages {
 
-        stage('Checkout Code') {
-            steps {
-                git 'https://github.com/harshitaahirwar/Automated_Website_Javascript_Playwright.git'
-            }
-        }
+        // stage('Checkout Code') {
+        //     steps {
+        //         git 'https://github.com/harshitaahirwar/Automated_Website_Javascript_Playwright.git'
+        //     }
+        // }
 
         stage('Install Dependencies') {
             steps {
