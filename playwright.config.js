@@ -32,6 +32,7 @@ export default defineConfig({
        reporter: [
     ['html'],
     ['list']
+    
   ],
        screenshot: 'only-on-failure',
        
