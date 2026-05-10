@@ -10,7 +10,6 @@
 
 ![Playwright](https://img.shields.io/badge/Playwright-Automation-green?style=for-the-badge&logo=playwright)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?style=for-the-badge&logo=javascript)
-![NodeJS](https://img.shields.io/badge/NodeJS-Backend-brightgreen?style=for-the-badge&logo=node.js)
 ![Tests](https://img.shields.io/badge/Test_Status-Active-success?style=for-the-badge)
 
 </div>
