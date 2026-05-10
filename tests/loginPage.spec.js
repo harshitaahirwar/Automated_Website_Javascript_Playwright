@@ -9,3 +9,10 @@ test('login as admin', async ({ loginpage, page }) => {
 
  await expect(page).toHaveURL(/inventory/);
 });
+
+
+test('LogoCheck',async ({loginpage,page})=>{
+
+await loginpage.logocheck();
+
+})

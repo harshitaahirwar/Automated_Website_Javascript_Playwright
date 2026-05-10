@@ -1,3 +1,5 @@
+import { CartPage } from "./cartPage";
+
 export class CheckoutPage{
 
 
@@ -9,6 +11,7 @@ this.last_Name = this.page.getByPlaceholder('Last Name');
 this.zip_code =this.page.getByPlaceholder('Zip/Postal Code');
 
 this.contiueButton=this.page.getByRole('button', { name: 'Continue' });
+this.cancelButton=this.page.getByRole('button',{name:'Cancel'});
 this.finishButton = this.page.getByRole('button', { name: 'Finish' });
 
 
@@ -27,6 +30,11 @@ await this.page.getByText('Checkout: Overview');
   await this.finishButton.click();
 }
 
+async cancel(){
+await this.cancelButton.click();
+return await this.cancelButton;
+
+}
 
 
 

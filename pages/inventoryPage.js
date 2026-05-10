@@ -5,16 +5,18 @@ export class InventoryPage {
  this.product = this.page.locator('.inventory_item');
  this.openMenu = this.page.getByRole('button', { name: 'Open Menu' });
 this.closeMenu = this.page.getByRole('button', { name: 'Close Menu' });
-    this.Cart_badge = this.page.locator('.shopping_cart_badge');
-    this.sortDropdown = this.page.locator('.product_sort_container');
+    this.Cart_badge = this.page.locator("//div[@class='cart_list']//div[@class='cart_item_label']//a");
+    this.sortDropdown = this.page.locator("option");
    this.productNames = this.page.locator('.inventory_item_name');
+   this.hambergerList =this.page.locator("//nav[@class='bm-item-list']//a");
+  this.cartBadge_count =page.locator('.shopping_cart_badge');
     
   }
 
   async addProduct(productName) {
   const specificProduct=  this.product.filter({ hasText: new RegExp(productName)});
       await expect(specificProduct).toHaveCount(1);
-      console.log(specificProduct);
+      //console.log(specificProduct);
       await specificProduct.getByRole('button', { name: 'Add to cart' }).click();
   }
 
@@ -26,18 +28,38 @@ this.closeMenu = this.page.getByRole('button', { name: 'Close Menu' });
 
   }
 
+
+  async getCartCount(){
+
+    if(await this.cartBadge_count.count() === 0){
+
+        return 0;
+
+    }
+
+    return Number(
+      await this.cartBadge_count.innerText()
+    );
+
+}
+
+
+
   async OpenSideMenu(){
     await  this.openMenu.click();
         
 }
 
-async sortBy(option) 
+async sortBy() 
 {
-  console.log(option)
-   await this.sortDropdown.selectOption(option);
+ 
+  return await this.sortDropdown.allTextContents();
+
   
   
 }
+
+
 async getAllProductNames() {
     return await this.productNames.allTextContents();
   }
@@ -47,14 +69,24 @@ async getAllProductNames() {
     await  this.closeMenu.click();
 }
 
- async getCartCount() {
-  if(await this.Cart_badge.count()==0)
- {  
-    return 0;
-  }
- const text= await this.Cart_badge.innerText();
- return text;
+ async getCartProduct() {
+//   if(await this.Cart_badge.count()==0)
+//  {  
+//     return 0;
+//   }
+  return await this.Cart_badge.allTextContents();
+ 
   
+  }
+
+
+
+
+
+  async hambergerListCount(){
+  
+return await this.hambergerList.allTextContents();
+
   }
 
 

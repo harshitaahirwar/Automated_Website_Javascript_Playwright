@@ -8,6 +8,8 @@ export class LoginPage {
  this.passwordInput=  this.page.getByRole('textbox',{name:'Password'});
     this.loginButton=  this.page.getByRole('button',{name:'Login'});
 
+    this.logo=this.page.getByText('Swag Labs');
+
   }
 
   async goto() {
@@ -20,6 +22,17 @@ export class LoginPage {
       await Promise.all([
     this.page.waitForURL(/inventory/),
     this.loginButton.click()
-  ]);
-  }
+  ]);}
+
+async logocheck(){
+await this.logo.waitFor({state:'visible'})
+
+}
+
+
+
+
+
+
+
 }
